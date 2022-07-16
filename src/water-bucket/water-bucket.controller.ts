@@ -15,7 +15,7 @@ export class WaterBucketController {
   constructor(private waterBucketService: WaterBucketService) {}
 
   @Get()
-  calculate(@Query() query: CalculateReqDto): CalculateResDto {
+  calculate(@Query() query: CalculateReqDto): CalculateResDto | string {
     return this.waterBucketService.calculate(query);
   }
 }
