@@ -3,11 +3,6 @@ import { CalculateReqDto } from './dto/calculate-req.dto';
 import { CalculateResDto } from './dto/calculate-res.dto';
 import { PourReqDto } from './dto/pour-req.dto';
 import { PourResDto } from './dto/pour-res.dto';
-import {
-  INITIAL_QUEUE,
-  INITIAL_RESULT,
-  INITIAL_STATES,
-} from './water-bucket.constants';
 import { IQueue } from './water-bucket.interface';
 
 @Injectable()
@@ -135,8 +130,11 @@ export class WaterBucketService {
   }
 
   private reset(): void {
-    this.states = INITIAL_STATES;
-    this.Queue = INITIAL_QUEUE;
-    this.result = INITIAL_RESULT;
+    this.states = [];
+    this.Queue = [
+      { x: 0, y: 0, dir: 2 },
+      { x: 0, y: 0, dir: 3 },
+    ];
+    this.result = undefined;
   }
 }
